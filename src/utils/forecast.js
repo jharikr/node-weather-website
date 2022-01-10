@@ -23,9 +23,9 @@ const forecast = (lat, long, callback) => { //descontruct
         callback(undefined, weatherDescription[0]
                     + '. It is currently ' 
                     + temperature
-                    + ' degrees out. It feels like ' 
+                    + ' degrees and it feels like ' 
                     + realFeel
-                    + ' degrees out. The current wind speed is ' 
+                    + ' degrees. The current wind speed is ' 
                     + windSpeed 
                     + 'mph coming from the ' 
                     + windDirection 
