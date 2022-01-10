@@ -14,7 +14,7 @@ const forecast = (lat, long, callback) => { //descontruct
             return callback('Unable to find location. Try another location', undefined);
             
         }
-        const { weather_descriptions: weatherDescription, temperature, feelslike: realFeel } = current; //desconstruct
+        const { weather_descriptions: weatherDescription, temperature, feelslike: realFeel, wind_speed: windSpeed, wind_dir: windDirection, precip } = current; //desconstruct
         // callback(undefined, {
         //     weatherForecast: weatherDescription[0],
         //     temperature: temperature, 
@@ -25,7 +25,13 @@ const forecast = (lat, long, callback) => { //descontruct
                     + temperature
                     + ' degrees out. It feels like ' 
                     + realFeel
-                    + ' degrees out.');
+                    + ' degrees out. The current wind speed is ' 
+                    + windSpeed 
+                    + 'mph coming from the ' 
+                    + windDirection 
+                    + ' with a ' 
+                    + precip 
+                    + '% chance of rain.');
     });
 }
 module.exports = forecast;
