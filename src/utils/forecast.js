@@ -1,7 +1,9 @@
 const request = require ('postman-request');
 
-const forecast = (lat, long, callback) => { //descontruct
-    const url = 'http://api.weatherstack.com/current?access_key=8e76be4aa2936b68cee6cc34e61aa7f1&query='
+const forecast = (lat, long, callback) => { 
+    const url = 'http://api.weatherstack.com/current?access_key='
+        + process.env.WEATHERSTACK_API_KEY
+        +'&query='
         + lat
         + ','
         + long
@@ -14,12 +16,7 @@ const forecast = (lat, long, callback) => { //descontruct
             return callback('Unable to find location. Try another location', undefined);
             
         }
-        const { weather_descriptions: weatherDescription, temperature, feelslike: realFeel, wind_speed: windSpeed, wind_dir: windDirection, precip } = current; //desconstruct
-        // callback(undefined, {
-        //     weatherForecast: weatherDescription[0],
-        //     temperature: temperature, 
-        //     realFeel: feelslike
-        // })
+        const { weather_descriptions: weatherDescription, temperature, feelslike: realFeel, wind_speed: windSpeed, wind_dir: windDirection, precip } = current; 
         callback(undefined, weatherDescription[0]
                     + '. It is currently ' 
                     + temperature

@@ -13,7 +13,7 @@ const publicDirectoryPath = path.join(__dirname,'../public');
 const viewsPath = path.join(__dirname,'../templates/views');
 const partialsPath = path.join(__dirname,'../templates/partials');
 
-// Set upp handle bars engine and views location
+// Set up handle bars engine and views location
 app.set('view engine', 'hbs');
 app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
